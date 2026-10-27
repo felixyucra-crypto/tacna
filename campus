@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Foros Complementarios</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:0 0.5cm;
+    font-family:Arial, sans-serif;
+  }
+  .carousel-container{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+  }
+  .carousel-track{
+    display:flex;
+    transition:transform 0.5s ease-in-out;
+    gap:0;
+  }
+  .banner{
+    min-width:100%;
+    flex-shrink:0;
+    overflow:hidden;
+    text-decoration:none;
+    transition:transform .3s ease;
+  }
+  .banner:hover{transform:scale(1.01);}
+  .banner img{width:100%;display:block;}
+</style>
+</head>
+<body>
+<div class="carousel-container">
+  <div class="carousel-track" id="carouselTrack">
+    <a class="banner" href="https://campus.neumann.edu.pe/course/view.php?id=465" target="_blank">
+      <img src="https://i.postimg.cc/Hnq5SX8S/Mesa-de-trabajo-1-12-2x.png"/>
+    </a>
+    <a class="banner" href="" target="_blank">
+      <img src="https://i.postimg.cc/v8xGrqDN/que-gusto-tenerte-de-vuelta-2.jpg"/>
+  
+    </a>
+  </div>
+</div>
+<script>
+  const track = document.getElementById("carouselTrack");
+  const banners = document.querySelectorAll(".banner");
+  let index = 0;
 
+  function moveCarousel() {
+    index++;
+    if(index >= banners.length){
+      index = 0;
+    }
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  setInterval(moveCarousel, 8000);
+</script>
+</body>
+</html>
